@@ -13,33 +13,6 @@ class NavBarWidget extends StatelessWidget {
         ),
         child: ListView(
           children: [
-            // UserAccountsDrawerHeader(
-            //   currentAccountPicture: CircleAvatar(
-            //     backgroundColor: Colors.white,
-            //     child: Text(
-            //       'A',
-            //       style: TextStyle(fontSize: 40),
-            //     ),
-            //   ),
-            //   decoration: BoxDecoration(
-            //     gradient: GreenGradientToneLTToRB,
-            //   ),
-            //   accountName: Text(
-            //     'Anurak Choosri',
-            //     style: TextStyle(
-            //       fontFamily: 'JetBrainsMono',
-            //       color: Colors.black,
-            //     ),
-            //   ),
-            //   accountEmail: Text(
-            //     'd6500450@g.sut.ac.th',
-            //     style: TextStyle(
-            //       fontFamily: 'JetBrainsMono',
-            //       color: Colors.black,
-            //       fontSize: MediaQuery.of(context).size.width * 0.04,
-            //     ),
-            //   ),
-            // ),
             Container(
               height: MediaQuery.of(context).size.height * 0.2,
               padding: EdgeInsets.fromLTRB(20, 20, 0, 0),
@@ -62,10 +35,9 @@ class NavBarWidget extends StatelessWidget {
                   Text(
                     'Anurak Choosri',
                     style: TextStyle(
-                      fontFamily: 'JetBrainsMono',
-                      color: Colors.black,
-                      fontSize: 20
-                    ),
+                        fontFamily: 'JetBrainsMono',
+                        color: Colors.black,
+                        fontSize: 20),
                   ),
                   SizedBox(height: 5),
                   Text(
