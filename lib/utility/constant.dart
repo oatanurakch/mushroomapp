@@ -9,9 +9,17 @@ final ColorPalette = [
 
 final GreenGradientToneLTToRB = LinearGradient(
   colors: [
-
     Color(0xFF41B06E),
     Color(0xFF8DECB4),
+  ],
+  begin: Alignment.topLeft,
+  end: Alignment.bottomRight,
+);
+
+final GreenGradientTone4Zone = LinearGradient(
+  colors: [
+    Color(0xFF12372A),
+    Color(0xFF436850),
   ],
   begin: Alignment.topLeft,
   end: Alignment.bottomRight,

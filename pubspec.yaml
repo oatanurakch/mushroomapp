@@ -91,6 +91,9 @@ flutter:
           - asset: assets/fonts/JetBrainsMono-Bold.ttf
           - asset: assets/fonts/JetBrainsMono-Italic.ttf
           - asset: assets/fonts/JetBrainsMono-BoldItalic.ttf
+      - family: Maehongson
+        fonts:
+          - asset: assets/fonts/PK Maehongson Round Demo.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

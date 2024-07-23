@@ -18,14 +18,16 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        drawer: NavBarWidget(),
-        appBar: AppBar(
-          backgroundColor: ColorPalette[2],
-          title: Text(
-            'Mushroom App',
-            style: TextStyle(
-              fontFamily: 'JetBrainsMono',
+      home: SafeArea(
+        child: Scaffold(
+          drawer: NavBarWidget(),
+          appBar: AppBar(
+            backgroundColor: ColorPalette[2],
+            title: Text(
+              'Mushroom App',
+              style: TextStyle(
+                fontFamily: 'JetBrainsMono',
+              ),
             ),
           ),
         ),
