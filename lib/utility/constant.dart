@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-final ColorPaletter = [
+final ColorPalette = [
   Color(0xFFFFF5E0),
   Color(0xFF8DECB4),
   Color(0xFF41B06E),
