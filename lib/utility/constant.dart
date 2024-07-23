@@ -6,3 +6,13 @@ final ColorPalette = [
   Color(0xFF41B06E),
   Color(0xFF141E46),
 ];
+
+final GreenGradientToneLTToRB = LinearGradient(
+  colors: [
+
+    Color(0xFF41B06E),
+    Color(0xFF8DECB4),
+  ],
+  begin: Alignment.topLeft,
+  end: Alignment.bottomRight,
+);
