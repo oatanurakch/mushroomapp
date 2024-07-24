@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:mushroomapp/utility/constant.dart';
 import 'package:mushroomapp/widgets/navbar.dart';
+import 'package:mushroomapp/widgets/bottom_navbar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,21 +19,12 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SafeArea(
-        child: Scaffold(
-          drawer: NavBarWidget(),
-          appBar: AppBar(
-            backgroundColor: ColorPalette[2],
-            title: Text(
-              'Mushroom App',
-              style: TextStyle(
-                fontFamily: 'JetBrainsMono',
-              ),
-            ),
-          ),
-        ),
-      ),
+      home: route(),
       debugShowCheckedModeBanner: false,
     );
+  }
+
+  route() {
+    return BTNavigation();
   }
 }

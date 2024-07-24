@@ -9,7 +9,7 @@ class NavBarWidget extends StatelessWidget {
     return Drawer(
       child: Container(
         decoration: BoxDecoration(
-          gradient: GreenGradientTone4Zone,
+          gradient: GreenGradientToneDark,
         ),
         child: ListView(
           children: [
@@ -52,24 +52,35 @@ class NavBarWidget extends StatelessWidget {
               ),
             ),
             _buildDrawerItem(
-                'assets/icons/package.png', 'โรงบ่มก้อนเชื้อ', [5, 10, 5, 0]),
+              'assets/icons/package.png',
+              'โรงบ่มก้อนเชื้อ',
+              [5, 10, 5, 0],
+              onTap: () {
+                print("โรงบ่มเชื้อ");
+              },
+            ),
             _buildDrawerItem(
-                'assets/icons/mushroom.png', 'โรงเพาะเชื้อ', [5, 5, 5, 0]),
+              'assets/icons/mushroom.png',
+              'โรงเพาะเชื้อ',
+              [5, 5, 5, 0],
+              onTap: () {
+                print("โรงเพาะเชื้อ");
+              },
+            ),
           ],
         ),
       ),
     );
   }
 
-  _buildDrawerItem(
-    String pathImg,
-    String item,
-    List<double> margin,
-  ) {
+  _buildDrawerItem(String pathImg, String item, List<double> margin,
+      {Function()? onTap}) {
     return Container(
       padding: EdgeInsets.fromLTRB(margin[0], margin[1], margin[2], margin[3]),
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          onTap!();
+        },
         child: Container(
           decoration: BoxDecoration(
             color: Colors.transparent,

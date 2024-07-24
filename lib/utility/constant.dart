@@ -16,7 +16,7 @@ final GreenGradientToneLTToRB = LinearGradient(
   end: Alignment.bottomRight,
 );
 
-final GreenGradientTone4Zone = LinearGradient(
+final GreenGradientToneDark = LinearGradient(
   colors: [
     Color(0xFF12372A),
     Color(0xFF436850),
