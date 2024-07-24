@@ -14,12 +14,14 @@ class _OzonePageState extends State<OzonePage> {
     return Container(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Ozone Control",style: TextStyle(fontFamily: 'JetBrainsMono',fontWeight: FontWeight.bold, fontSize: 36)),
+          title: Text("Ozone Control",
+              style: TextStyle(
+                  fontFamily: 'JetBrainsMono',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 36)),
         ),
         body: ListView(
-          children: [
-
-          ],
+          children: [],
         ),
       ),
     );

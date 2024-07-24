@@ -26,16 +26,19 @@ class _OverviewPageState extends State<OverviewPage> {
                   children: [
                     Text(
                       'สวัสดีคุณอนุรักษ์ ชูศรี',
-                      style:
-                          TextStyle(fontFamily: 'JetBrainsMono', fontSize: 20),
+                      style: TextStyle(
+                        fontFamily: 'Maehongson',
+                        fontSize: MediaQuery.of(context).size.width * 0.05,
+                      ),
                     ),
                     Text(
                       'ยินดีต้อนรับเข้าสู่ Mushroom App',
                       style: TextStyle(
-                        fontFamily: 'JetBrainsMono',
-                        fontSize: 20,
+                        fontFamily: 'Maehongson',
+                        fontSize: MediaQuery.of(context).size.width * 0.05,
                       ),
                     ),
+                    Container(),
                   ],
                 ),
               ),

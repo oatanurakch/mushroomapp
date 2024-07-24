@@ -32,6 +32,7 @@ class _BTNavigationState extends State<BTNavigation> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: ColorPalette[2],
+          elevation: 0,
           title: Text(
             'Mushroom App',
             style: TextStyle(
