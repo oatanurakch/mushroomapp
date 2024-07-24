@@ -45,7 +45,6 @@ class _BTNavigationState extends State<BTNavigation> {
         ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.shifting,
-          backgroundColor: Colors.white,
           currentIndex: _selectedIndex,
           onTap: _onItemTapped,
           elevation: 0,
@@ -64,10 +63,12 @@ class _BTNavigationState extends State<BTNavigation> {
             BottomNavigationBarItem(
               icon: Icon(Icons.home_filled),
               label: 'Overview',
+              backgroundColor: ColorPalette[0],
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.air),
               label: 'Ozone',
+              backgroundColor: ColorPalette[0],
             ),
           ],
         ),

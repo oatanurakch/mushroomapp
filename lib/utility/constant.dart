@@ -18,8 +18,8 @@ final GreenGradientToneLTToRB = LinearGradient(
 
 final GreenGradientToneDark = LinearGradient(
   colors: [
-    Color(0xFF12372A),
-    Color(0xFF436850),
+    Color(0xFF425F57),
+    Color(0xFFA8E890),
   ],
   begin: Alignment.topLeft,
   end: Alignment.bottomRight,
