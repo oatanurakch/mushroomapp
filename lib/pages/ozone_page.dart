@@ -11,6 +11,17 @@ class OzonePage extends StatefulWidget {
 class _OzonePageState extends State<OzonePage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Ozone Control",style: TextStyle(fontFamily: 'JetBrainsMono',fontWeight: FontWeight.bold, fontSize: 36)),
+        ),
+        body: ListView(
+          children: [
+
+          ],
+        ),
+      ),
+    );
   }
 }
