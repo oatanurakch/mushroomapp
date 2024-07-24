@@ -13,17 +13,30 @@ class _OverviewPageState extends State<OverviewPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: ColorPalette[0],
         body: ListView(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                color: ColorPalette[0],
+            Padding(
+              padding: EdgeInsets.all(
+                8.0,
               ),
               child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.5,
-                decoration: BoxDecoration(
-                  gradient: GreenGradientToneLTToRB,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'สวัสดีคุณอนุรักษ์ ชูศรี',
+                      style:
+                          TextStyle(fontFamily: 'JetBrainsMono', fontSize: 20),
+                    ),
+                    Text(
+                      'ยินดีต้อนรับเข้าสู่ Mushroom App',
+                      style: TextStyle(
+                        fontFamily: 'JetBrainsMono',
+                        fontSize: 20,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
