@@ -61,7 +61,7 @@ class NavBarWidget extends StatelessWidget {
             ),
             _buildDrawerItem(
               'assets/icons/mushroom.png',
-              'โรงเพาะเชื้อ',
+              'โรงเพาะเห็ด',
               [5, 5, 5, 0],
               onTap: () {
                 print("โรงเพาะเชื้อ");
