@@ -41,8 +41,8 @@ class _OzonePageState extends State<OzonePage> {
                           ],),
                       ),
                       Container(
-                        height: MediaQuery.sizeOf(context).height*0.3,
-                        width: MediaQuery.sizeOf(context).width*0.5,
+                        height: MediaQuery.sizeOf(context).height * 0.3,
+                        width: MediaQuery.sizeOf(context).width * 0.5,
                         decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               color: Colors.white

@@ -9,6 +9,7 @@ class OverviewPage extends StatefulWidget {
 }
 
 class _OverviewPageState extends State<OverviewPage> {
+  final redKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -24,22 +25,18 @@ class _OverviewPageState extends State<OverviewPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'สวัสดีคุณอนุรักษ์ ชูศรี',
-                      style: TextStyle(
-                        fontFamily: 'Maehongson',
-                        fontSize: MediaQuery.of(context).size.width * 0.05,
-                      ),
-                    ),
-                    Text(
-                      'ยินดีต้อนรับเข้าสู่ Mushroom App',
-                      style: TextStyle(
-                        fontFamily: 'Maehongson',
-                        fontSize: MediaQuery.of(context).size.width * 0.05,
+                    Center(
+                      child: Text(
+                        'ข้อมูลภายในโรงเพาะเห็ด',
+                        style: TextStyle(
+                          fontFamily: 'Maehongson',
+                          fontSize: MediaQuery.of(context).size.width * 0.05,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.02,
+                      height: MediaQuery.of(context).size.height * 0.01,
                     ),
                     Stack(
                       children: [
@@ -75,15 +72,42 @@ class _OverviewPageState extends State<OverviewPage> {
                     Center(
                       child: Column(
                         children: [
-                          Text(
-                            'ข้อมูลภายในโรงเพาะเห็ด',
-                            style: TextStyle(
-                              fontFamily: 'Maehongson',
-                              fontSize:
-                                  MediaQuery.of(context).size.width * 0.05,
-                            ),
+                          _buildCardItems(
+                            'assets/icons/fan.png',
+                            'Fan Speed',
+                            'RPM',
+                            1480,
                           ),
-                          _buildCardItems(),
+                          _buildCardItems(
+                            'assets/icons/airflow.png',
+                            'Air Flow',
+                            'CFM',
+                            42,
+                          ),
+                          _buildCardItems(
+                            'assets/icons/power.png',
+                            'Power Consumption',
+                            'Watt',
+                            182,
+                          ),
+                          _buildCardItems(
+                            'assets/icons/energyconsumption.png',
+                            'Energy',
+                            'kWh',
+                            0.8,
+                          ),
+                          _buildCardItems(
+                            'assets/icons/light.png',
+                            'ไฟส่องสว่าง',
+                            null,
+                            'OFF',
+                          ),
+                          _buildCardItems(
+                            'assets/icons/led.png',
+                            'LED สีน้ำเงิน',
+                            null,
+                            'ON',
+                          ),
                         ],
                       ),
                     ),
@@ -146,28 +170,29 @@ class _OverviewPageState extends State<OverviewPage> {
     );
   }
 
-  _buildCardItems() {
+  _buildCardItems(pathImg, itemName, unit, value) {
     return Card(
       color: ColorPalette[1],
       child: Container(
-        padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+        padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
         child: Row(
           children: [
-            Image.asset('assets/icons/fan.png'),
+            Image.asset(pathImg,
+                width: MediaQuery.of(context).size.height * 0.08),
             SizedBox(width: 10),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Fan Speed',
+                  itemName,
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: MediaQuery.of(context).size.height * 0.025,
                     fontWeight: FontWeight.bold,
-                    fontFamily: 'JetbrainsMono',
+                    fontFamily: 'Maehongson',
                   ),
                 ),
                 Text(
-                  'RPM',
+                  unit != null ? unit : '',
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontFamily: 'JetbrainsMono',
@@ -180,7 +205,7 @@ class _OverviewPageState extends State<OverviewPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '1480',
+                  value.toString(),
                   style: TextStyle(
                     fontSize: MediaQuery.of(context).size.height * 0.05,
                     fontWeight: FontWeight.bold,

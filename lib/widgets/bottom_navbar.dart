@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mushroomapp/utility/constant.dart';
 
 import 'package:mushroomapp/pages/overview_page.dart';
+import 'package:mushroomapp/pages/utility_page.dart';
 import 'package:mushroomapp/pages/ozone_page.dart';
 import 'package:mushroomapp/widgets/navbar.dart';
 
@@ -16,6 +17,7 @@ class _BTNavigationState extends State<BTNavigation> {
   int _selectedIndex = 0;
   List _WidgetOptions = [
     OverviewPage(),
+    UtilityPage(),
     OzonePage(),
   ];
 
@@ -64,6 +66,11 @@ class _BTNavigationState extends State<BTNavigation> {
             BottomNavigationBarItem(
               icon: Icon(Icons.home_filled),
               label: 'Overview',
+              backgroundColor: ColorPalette[0],
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'Utility',
               backgroundColor: ColorPalette[0],
             ),
             BottomNavigationBarItem(
