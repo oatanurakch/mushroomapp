@@ -13,13 +13,8 @@ class _OzonePageState extends State<OzonePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: Text("Ozone Control",style: TextStyle(fontFamily: 'JetBrainsMono',fontWeight: FontWeight.bold, fontSize: 36)),
-        ),
         body: ListView(
-          children: [
-
-          ],
+          children: [],
         ),
       ),
     );
