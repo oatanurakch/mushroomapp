@@ -64,17 +64,26 @@ class _BTNavigationState extends State<BTNavigation> {
           unselectedItemColor: Colors.black,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home_filled),
+              icon: ImageIcon(
+                AssetImage('assets/icons/home.png'),
+                size: 20,
+              ),
               label: 'Overview',
               backgroundColor: ColorPalette[0],
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
+              icon: ImageIcon(
+                AssetImage('assets/icons/tools.png'),
+                size: 20,
+              ),
               label: 'Utility',
               backgroundColor: ColorPalette[0],
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.air),
+              icon: ImageIcon(
+                AssetImage('assets/icons/ozone.png'),
+                size: 20,
+              ),
               label: 'Ozone',
               backgroundColor: ColorPalette[0],
             ),
