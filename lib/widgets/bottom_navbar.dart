@@ -4,6 +4,7 @@ import 'package:mushroomapp/utility/constant.dart';
 import 'package:mushroomapp/pages/overview_page.dart';
 import 'package:mushroomapp/pages/utility_page.dart';
 import 'package:mushroomapp/pages/ozone_page.dart';
+import 'package:mushroomapp/pages/biotech_page.dart';
 import 'package:mushroomapp/widgets/navbar.dart';
 
 class BTNavigation extends StatefulWidget {
@@ -19,6 +20,7 @@ class _BTNavigationState extends State<BTNavigation> {
     OverviewPage(),
     UtilityPage(),
     OzonePage(),
+    BiotechPage(),
   ];
 
   // Ontap items
@@ -85,6 +87,14 @@ class _BTNavigationState extends State<BTNavigation> {
                 size: 20,
               ),
               label: 'Ozone',
+              backgroundColor: ColorPalette[0],
+            ),
+            BottomNavigationBarItem(
+              icon: ImageIcon(
+                AssetImage('assets/icons/fertilizer.png'),
+                size: 20,
+              ),
+              label: 'Biotech',
               backgroundColor: ColorPalette[0],
             ),
           ],
