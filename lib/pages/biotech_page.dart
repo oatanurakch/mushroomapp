@@ -206,7 +206,7 @@ class _BiotechPageState extends State<BiotechPage> {
                                   'Start', Colors.white, Colors.green),
                               _buildTextButton(
                                   'Stop', Colors.white, Colors.red),
-                              _buildTextButton('Return to Normal Flush',
+                              _buildTextButton('Normal Function',
                                   Colors.white, Colors.yellow[900]),
                             ],
                           ),

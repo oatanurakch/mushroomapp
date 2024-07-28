@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 final ColorPalette = [
-  Color(0xFFFFF5E0),
-  Color(0xFF8DECB4),
-  Color(0xFF41B06E),
-  Color(0xFF141E46),
+  Color(0xFFFFE9D0),
+  Color(0xFFFFFED3),
+  Color(0xFFBBE9FF),
+  Color(0xFFB1AFFF),
 ];
 
 final GreenGradientToneLTToRB = LinearGradient(
   colors: [
-    Color(0xFF41B06E),
-    Color(0xFF8DECB4),
+    Color(0xFFB1AFFF),
+    Color(0xFFBBE9FF),
   ],
   begin: Alignment.topLeft,
   end: Alignment.bottomRight,
@@ -18,8 +18,8 @@ final GreenGradientToneLTToRB = LinearGradient(
 
 final GreenGradientToneDark = LinearGradient(
   colors: [
-    Color(0xFF0A8C31),
-    Color(0xFFA8E890),
+    Color(0xFF433D8B),
+    Color(0xFFC8ACD6),
   ],
   begin: Alignment.topLeft,
   end: Alignment.bottomRight,

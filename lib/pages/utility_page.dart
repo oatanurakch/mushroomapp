@@ -14,12 +14,14 @@ class UtilityPage extends StatefulWidget {
 }
 
 class _UtilityPageState extends State<UtilityPage> {
-  double _value = 40;
+  double _value = globals.PWMVal;
   int _valueRPM = ((globals.PWMVal.toInt() * 1800) / 100).round();
   bool _isSwitchCoolingPad = false;
   bool _isSwitchBlueLED = false;
   bool _isSwitchOnOffTimeLED = false;
+  bool _isSwitchOnOffTimeLED2 = false;
   bool _isSwitchOnOffTimeLAMP = false;
+  bool _isSwitchOnOffTimeLAMP2 = false;
   bool _isSwitchLAMP = false;
   @override
   Widget build(BuildContext context) {
@@ -108,14 +110,14 @@ class _UtilityPageState extends State<UtilityPage> {
                 data: SfSliderThemeData(
                   tooltipBackgroundColor: ColorPalette[3],
                   thumbColor: ColorPalette[3],
-                  activeTrackColor: ColorPalette[2],
+                  activeTrackColor: Colors.green[300],
                   activeLabelStyle: TextStyle(
-                    color: ColorPalette[2],
+                    color: ColorPalette[3],
                     fontSize: MediaQuery.of(context).size.width * 0.04,
                     fontFamily: 'JetBrainsMono',
                   ),
                   inactiveLabelStyle: TextStyle(
-                    color: ColorPalette[3],
+                    color: Colors.black,
                     fontSize: MediaQuery.of(context).size.width * 0.04,
                     fontFamily: 'JetBrainsMono',
                   ),
@@ -207,7 +209,7 @@ class _UtilityPageState extends State<UtilityPage> {
               Switch(
                 value: _isSwitchCoolingPad,
                 activeColor: ColorPalette[3],
-                activeTrackColor: ColorPalette[1],
+                activeTrackColor: Colors.green[300],
                 inactiveTrackColor: Colors.white,
                 inactiveThumbColor: ColorPalette[3],
                 onChanged: (value) {
@@ -231,7 +233,7 @@ class _UtilityPageState extends State<UtilityPage> {
     return Container(
       padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
       width: MediaQuery.of(context).size.width - 20,
-      height: MediaQuery.of(context).size.height * 0.25,
+      height: MediaQuery.of(context).size.height * 0.3,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         color: Colors.white,
@@ -251,7 +253,7 @@ class _UtilityPageState extends State<UtilityPage> {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width * 0.3,
-                height: MediaQuery.of(context).size.height * 0.2,
+                height: MediaQuery.of(context).size.height * 0.25,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: Colors.white,
@@ -274,10 +276,12 @@ class _UtilityPageState extends State<UtilityPage> {
                       'Manual Mode',
                       style: TextStyle(fontFamily: 'JetBrainsMono'),
                     ),
+                    Spacer(),
                     Image.asset(
                       pathIcons,
                       height: MediaQuery.of(context).size.height * 0.1,
                     ),
+                    Spacer(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -290,7 +294,7 @@ class _UtilityPageState extends State<UtilityPage> {
                           activeColor: ColorPalette[2],
                           inactiveThumbColor: ColorPalette[3],
                           thumbColor: WidgetStatePropertyAll(ColorPalette[3]),
-                          activeTrackColor: ColorPalette[1],
+                          activeTrackColor: Colors.green[300],
                           onChanged: (value) {
                             setState(() {
                               _isSwitchBlueLED = value;
@@ -308,7 +312,7 @@ class _UtilityPageState extends State<UtilityPage> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width * 0.6,
-                height: MediaQuery.of(context).size.height * 0.2,
+                height: MediaQuery.of(context).size.height * 0.25,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   boxShadow: [
@@ -376,9 +380,62 @@ class _UtilityPageState extends State<UtilityPage> {
                               ),
                             ),
                             Switch(
+                              value: _isSwitchOnOffTimeLED2,
+                              activeColor: ColorPalette[3],
+                              activeTrackColor: Colors.green[300],
+                              inactiveTrackColor: Colors.white,
+                              inactiveThumbColor: ColorPalette[3],
+                              onChanged: (value) {
+                                setState(() {
+                                  _isSwitchOnOffTimeLED2 = value;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(
+                                8.0,
+                              ), // Add some padding so the border doesn't touch the text
+                              decoration: BoxDecoration(
+                                color: ColorPalette[0],
+                                borderRadius: BorderRadius.circular(20),
+                                border: Border.all(
+                                  color: ColorPalette[
+                                      2], // Set this to the color you want
+                                  width: 2, // Set this to the width you want
+                                ),
+                              ),
+                              child: Text(
+                                "10:30 AM",
+                                style: TextStyle(fontFamily: 'JetBrainsMono'),
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.all(
+                                8.0,
+                              ), // Add some padding so the border doesn't touch the text
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: ColorPalette[0],
+                                border: Border.all(
+                                  color: ColorPalette[
+                                      2], // Set this to the color you want
+                                  width: 2, // Set this to the width you want
+                                ),
+                              ),
+                              child: Text(
+                                "1:30 PM",
+                                style: TextStyle(fontFamily: 'JetBrainsMono'),
+                              ),
+                            ),
+                            Switch(
                               value: _isSwitchOnOffTimeLED,
                               activeColor: ColorPalette[3],
-                              activeTrackColor: ColorPalette[1],
+                              activeTrackColor: Colors.green[300],
                               inactiveTrackColor: Colors.white,
                               inactiveThumbColor: ColorPalette[3],
                               onChanged: (value) {
@@ -404,10 +461,10 @@ class _UtilityPageState extends State<UtilityPage> {
                         }
                       },
                       child: Text(
-                        '+ Add Time',
+                        'New Schedule',
                         style: TextStyle(
                           fontFamily: 'JetBrainsMono',
-                          color: ColorPalette[3],
+                          color: Colors.black,
                         ),
                       ),
                       style: ButtonStyle(
@@ -437,7 +494,7 @@ class _UtilityPageState extends State<UtilityPage> {
     return Container(
       padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
       width: MediaQuery.of(context).size.width - 20,
-      height: MediaQuery.of(context).size.height * 0.25,
+      height: MediaQuery.of(context).size.height * 0.3,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         color: Colors.white,
@@ -457,7 +514,7 @@ class _UtilityPageState extends State<UtilityPage> {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width * 0.3,
-                height: MediaQuery.of(context).size.height * 0.2,
+                height: MediaQuery.of(context).size.height * 0.25,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: Colors.white,
@@ -480,10 +537,12 @@ class _UtilityPageState extends State<UtilityPage> {
                       'Manual Mode',
                       style: TextStyle(fontFamily: 'JetBrainsMono'),
                     ),
+                    Spacer(),
                     Image.asset(
                       pathIcons,
                       height: MediaQuery.of(context).size.height * 0.1,
                     ),
+                    Spacer(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -496,7 +555,7 @@ class _UtilityPageState extends State<UtilityPage> {
                           activeColor: ColorPalette[2],
                           inactiveThumbColor: ColorPalette[3],
                           thumbColor: WidgetStatePropertyAll(ColorPalette[3]),
-                          activeTrackColor: ColorPalette[1],
+                          activeTrackColor: Colors.green[300],
                           onChanged: (value) {
                             setState(() {
                               _isSwitchLAMP = value;
@@ -514,7 +573,7 @@ class _UtilityPageState extends State<UtilityPage> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width * 0.6,
-                height: MediaQuery.of(context).size.height * 0.2,
+                height: MediaQuery.of(context).size.height * 0.25,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   boxShadow: [
@@ -584,12 +643,65 @@ class _UtilityPageState extends State<UtilityPage> {
                             Switch(
                               value: _isSwitchOnOffTimeLAMP,
                               activeColor: ColorPalette[3],
-                              activeTrackColor: ColorPalette[1],
+                              activeTrackColor: Colors.green[300],
                               inactiveTrackColor: Colors.white,
                               inactiveThumbColor: ColorPalette[3],
                               onChanged: (value) {
                                 setState(() {
                                   _isSwitchOnOffTimeLAMP = value;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(
+                                8.0,
+                              ), // Add some padding so the border doesn't touch the text
+                              decoration: BoxDecoration(
+                                color: ColorPalette[0],
+                                borderRadius: BorderRadius.circular(20),
+                                border: Border.all(
+                                  color: ColorPalette[
+                                      2], // Set this to the color you want
+                                  width: 2, // Set this to the width you want
+                                ),
+                              ),
+                              child: Text(
+                                "2:30 PM",
+                                style: TextStyle(fontFamily: 'JetBrainsMono'),
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.all(
+                                8.0,
+                              ), // Add some padding so the border doesn't touch the text
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: ColorPalette[0],
+                                border: Border.all(
+                                  color: ColorPalette[
+                                      2], // Set this to the color you want
+                                  width: 2, // Set this to the width you want
+                                ),
+                              ),
+                              child: Text(
+                                "5:30 PM",
+                                style: TextStyle(fontFamily: 'JetBrainsMono'),
+                              ),
+                            ),
+                            Switch(
+                              value: _isSwitchOnOffTimeLAMP2,
+                              activeColor: ColorPalette[3],
+                              activeTrackColor: Colors.green[300],
+                              inactiveTrackColor: Colors.white,
+                              inactiveThumbColor: ColorPalette[3],
+                              onChanged: (value) {
+                                setState(() {
+                                  _isSwitchOnOffTimeLAMP2 = value;
                                 });
                               },
                             ),
@@ -610,10 +722,10 @@ class _UtilityPageState extends State<UtilityPage> {
                         }
                       },
                       child: Text(
-                        '+ Add Time',
+                        'New Schedule',
                         style: TextStyle(
                           fontFamily: 'JetBrainsMono',
-                          color: ColorPalette[3],
+                          color: Colors.black,
                         ),
                       ),
                       style: ButtonStyle(

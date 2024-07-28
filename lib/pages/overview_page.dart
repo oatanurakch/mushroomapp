@@ -172,7 +172,7 @@ class _OverviewPageState extends State<OverviewPage> {
 
   _buildCardItems(pathImg, itemName, unit, value) {
     return Card(
-      color: ColorPalette[1],
+      color: ColorPalette[3],
       child: Container(
         padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
         child: Row(
