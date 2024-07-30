@@ -37,7 +37,7 @@ class _OzonePageState extends State<OzonePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Container(
-                        height: MediaQuery.sizeOf(context).height * 0.3,
+                        height: MediaQuery.sizeOf(context).height * 0.35,
                         width: MediaQuery.sizeOf(context).width * 0.3,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
@@ -95,7 +95,7 @@ class _OzonePageState extends State<OzonePage> {
                         ),
                       ),
                       Container(
-                        height: MediaQuery.of(context).size.height * 0.3,
+                        height: MediaQuery.of(context).size.height * 0.35,
                         width: MediaQuery.of(context).size.width * 0.6,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mushroomapp/utility/constant.dart';
+import 'package:mushroomapp/utility/globals.dart' as globals;
 
 class OverviewPage extends StatefulWidget {
   const OverviewPage({super.key});
@@ -64,6 +65,12 @@ class _OverviewPageState extends State<OverviewPage> {
                           "90",
                           [null, null, 10, 10],
                         ),
+                        _buildTagLabel(
+                          'assets/icons/fan.png',
+                          "Fan RPM",
+                          "${((globals.PWMVal.toInt() * 1800) / 100).round()}",
+                          [10, null, null, 10],
+                        ),
                       ],
                     ),
                     SizedBox(
@@ -72,12 +79,6 @@ class _OverviewPageState extends State<OverviewPage> {
                     Center(
                       child: Column(
                         children: [
-                          _buildCardItems(
-                            'assets/icons/fan.png',
-                            'Fan Speed',
-                            'RPM',
-                            1480,
-                          ),
                           _buildCardItems(
                             'assets/icons/airflow.png',
                             'Air Flow',
@@ -132,7 +133,7 @@ class _OverviewPageState extends State<OverviewPage> {
       child: Container(
         padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Colors.white.withOpacity(0.6),
           borderRadius: BorderRadius.circular(10), // Add this line
         ),
         child: Row(
@@ -178,7 +179,7 @@ class _OverviewPageState extends State<OverviewPage> {
         child: Row(
           children: [
             Image.asset(pathImg,
-                width: MediaQuery.of(context).size.height * 0.08),
+                width: MediaQuery.of(context).size.height * 0.06),
             SizedBox(width: 10),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -207,7 +208,7 @@ class _OverviewPageState extends State<OverviewPage> {
                 Text(
                   value.toString(),
                   style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.height * 0.05,
+                    fontSize: MediaQuery.of(context).size.height * 0.03,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'JetbrainsMono',
                   ),
