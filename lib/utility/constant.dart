@@ -5,15 +5,20 @@ final ColorPalette = [
   Color(0xFFFFFED3),
   Color(0xFFBBE9FF),
   Color(0xFFB1AFFF),
+  Color(0xFF2EDC94),
 ];
 
-final GreenGradientToneLTToRB = LinearGradient(
+final FontColor = [
+  Color.fromARGB(255, 240, 240, 240),
+];
+
+const GreenGradientToneLTToRB = LinearGradient(
   colors: [
-    Color(0xFFB1AFFF),
-    Color(0xFFBBE9FF),
+    Color(0xFF00D684),
+    Color(0xFF26B97C),
   ],
-  begin: Alignment.topLeft,
-  end: Alignment.bottomRight,
+  begin: Alignment.bottomRight,
+  end: Alignment.topLeft,
 );
 
 final GreenGradientToneDark = LinearGradient(

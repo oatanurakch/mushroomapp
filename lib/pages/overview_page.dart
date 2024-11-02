@@ -15,106 +15,153 @@ class _OverviewPageState extends State<OverviewPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: ColorPalette[0],
+        backgroundColor: Colors.grey[200],
         body: ListView(
           children: [
-            Padding(
-              padding: EdgeInsets.all(
-                8.0,
-              ),
-              child: Container(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Center(
-                      child: Text(
-                        'ข้อมูลภายในโรงเพาะเห็ด',
-                        style: TextStyle(
-                          fontFamily: 'Maehongson',
-                          fontSize: MediaQuery.of(context).size.width * 0.05,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+            Column(
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.2,
+                  decoration: BoxDecoration(color: ColorPalette[4]),
+                  child: Center(
+                    child: Text(
+                      'Mushroom App',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Prompt',
+                          fontSize: 36,
+                          fontWeight: FontWeight.w400),
                     ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.01,
-                    ),
-                    Stack(
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(
+                    8.0,
+                  ),
+                  child: Container(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          height: MediaQuery.of(context).size.height * 0.3,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              image: DecorationImage(
-                                  image:
-                                      AssetImage('assets/images/mushroom.png'),
-                                  fit: BoxFit.cover,
-                                  colorFilter: ColorFilter.mode(
-                                      Colors.black.withOpacity(0.1),
-                                      BlendMode.darken))),
+                        // SizedBox(
+                        //   height: MediaQuery.of(context).size.height * 0.01,
+                        // ),
+                        Center(
+                          child: Padding(
+                            padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
+                            child: Container(
+                              width: MediaQuery.of(context).size.width,
+                              height: MediaQuery.of(context).size.height * 0.07,
+                              decoration: BoxDecoration(
+                                  color: Colors.grey[50],
+                                  borderRadius:
+                                      BorderRadiusDirectional.circular(10)),
+                              child: Center(
+                                child: Text(
+                                  'House #1',
+                                  style: TextStyle(
+                                    fontFamily: 'Maehongson',
+                                    fontSize:
+                                        MediaQuery.of(context).size.width *
+                                            0.07,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
-                        _buildTagLabel(
-                          'assets/icons/temp.png',
-                          "อุณหภูมิ °C",
-                          "22.8 ",
-                          [10, 10, null, null],
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.01,
                         ),
-                        _buildTagLabel(
-                          'assets/icons/humid.png',
-                          "ความชื้น %RH",
-                          "90",
-                          [null, null, 10, 10],
+                        Stack(
+                          children: [
+                            Container(
+                              height: MediaQuery.of(context).size.height * 0.3,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assets/images/mushroom.png'),
+                                      fit: BoxFit.cover,
+                                      colorFilter: ColorFilter.mode(
+                                          Colors.black.withOpacity(0.1),
+                                          BlendMode.darken))),
+                            ),
+                            _buildTagLabel(
+                              'assets/icons/temp.png',
+                              "อุณหภูมิ °C",
+                              "22.8 ",
+                              [10, 10, null, null],
+                            ),
+                            _buildTagLabel(
+                              'assets/icons/humid.png',
+                              "ความชื้น %RH",
+                              "90",
+                              [null, null, 10, 10],
+                            ),
+                            _buildTagLabel(
+                              'assets/icons/fan.png',
+                              "Fan RPM",
+                              "${((globals.PWMVal.toInt() * 1800) / 100).round()}",
+                              [10, null, null, 10],
+                            ),
+                          ],
                         ),
-                        _buildTagLabel(
-                          'assets/icons/fan.png',
-                          "Fan RPM",
-                          "${((globals.PWMVal.toInt() * 1800) / 100).round()}",
-                          [10, null, null, 10],
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.02,
+                        ),
+                        Center(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Column(
+                                children: [
+                                  _buildCardItems(
+                                    'assets/icons/airflow.png',
+                                    'Air Flow',
+                                    'CFM',
+                                    42,
+                                  ),
+                                  _buildCardItems(
+                                    'assets/icons/power.png',
+                                    'Power Consumption',
+                                    'Watt',
+                                    182,
+                                  ),
+                                  _buildCardItems(
+                                    'assets/icons/energyconsumption.png',
+                                    'Energy',
+                                    'kWh',
+                                    0.8,
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  _buildCardItems(
+                                    'assets/icons/light.png',
+                                    'ไฟส่องสว่าง',
+                                    null,
+                                    'OFF',
+                                  ),
+                                  _buildCardItems(
+                                    'assets/icons/led.png',
+                                    'LED สีน้ำเงิน',
+                                    null,
+                                    'ON',
+                                  ),
+                                  _buildCardItems(
+                                      'assets/icons/uv.png', 'UV', null, 'ON')
+                                ],
+                              )
+                            ],
+                          ),
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.02,
-                    ),
-                    Center(
-                      child: Column(
-                        children: [
-                          _buildCardItems(
-                            'assets/icons/airflow.png',
-                            'Air Flow',
-                            'CFM',
-                            42,
-                          ),
-                          _buildCardItems(
-                            'assets/icons/power.png',
-                            'Power Consumption',
-                            'Watt',
-                            182,
-                          ),
-                          _buildCardItems(
-                            'assets/icons/energyconsumption.png',
-                            'Energy',
-                            'kWh',
-                            0.8,
-                          ),
-                          _buildCardItems(
-                            'assets/icons/light.png',
-                            'ไฟส่องสว่าง',
-                            null,
-                            'OFF',
-                          ),
-                          _buildCardItems(
-                            'assets/icons/led.png',
-                            'LED สีน้ำเงิน',
-                            null,
-                            'ON',
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
+              ],
             ),
           ],
         ),
@@ -172,52 +219,122 @@ class _OverviewPageState extends State<OverviewPage> {
   }
 
   _buildCardItems(pathImg, itemName, unit, value) {
-    return Card(
-      color: ColorPalette[3],
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 10.0),
       child: Container(
-        padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-        child: Row(
-          children: [
-            Image.asset(pathImg,
-                width: MediaQuery.of(context).size.height * 0.06),
-            SizedBox(width: 10),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  itemName,
-                  style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.height * 0.025,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Maehongson',
-                  ),
+        decoration: BoxDecoration(
+            // gradient: GreenGradientToneLTToRB,
+            color: Colors.grey[50],
+            borderRadius: BorderRadius.circular(10)),
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.45,
+          height: MediaQuery.of(context).size.height * 0.2,
+          padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset(pathImg,
+                  width: MediaQuery.of(context).size.height * 0.04),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
+              ),
+              Text(
+                itemName,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: MediaQuery.of(context).size.height * 0.015,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: 'Prompt',
                 ),
-                Text(
-                  unit != null ? unit : '',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontFamily: 'JetbrainsMono',
+              ),
+              Row(
+                children: [
+                  Text(
+                    value.toString(),
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: MediaQuery.of(context).size.height * 0.06,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'Prompt',
+                    ),
                   ),
-                ),
-              ],
-            ),
-            Spacer(),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  value.toString(),
-                  style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.height * 0.03,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'JetbrainsMono',
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.01,
                   ),
-                ),
-              ],
-            ),
-          ],
+                  Column(
+                    children: [
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.02,
+                      ),
+                      Text(
+                        unit != null ? unit : '',
+                        style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.height * 0.03,
+                          color: Color(0xFFA0A0A0),
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Prompt',
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              Spacer(),
+            ],
+          ),
         ),
       ),
     );
   }
+
+  // _buildCardItems(pathImg, itemName, unit, value) {
+  //   return Card(
+  //     color: ColorPalette[4],
+  //     child: Container(
+  //       padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+  //       child: Row(
+  //         children: [
+  //           Image.asset(pathImg,
+  //               width: MediaQuery.of(context).size.height * 0.06),
+  //           SizedBox(width: 10),
+  //           Column(
+  //             crossAxisAlignment: CrossAxisAlignment.start,
+  //             children: [
+  //               Text(
+  //                 itemName,
+  //                 style: TextStyle(
+  //                   fontSize: MediaQuery.of(context).size.height * 0.025,
+  //                   fontWeight: FontWeight.bold,
+  //                   fontFamily: 'Maehongson',
+  //                 ),
+  //               ),
+  //               Text(
+  //                 unit != null ? unit : '',
+  //                 style: TextStyle(
+  //                   fontWeight: FontWeight.w600,
+  //                   fontFamily: 'JetbrainsMono',
+  //                 ),
+  //               ),
+  //             ],
+  //           ),
+  //           Spacer(),
+  //           Column(
+  //             crossAxisAlignment: CrossAxisAlignment.start,
+  //             children: [
+  //               Text(
+  //                 value.toString(),
+  //                 style: TextStyle(
+  //                   fontSize: MediaQuery.of(context).size.height * 0.03,
+  //                   fontWeight: FontWeight.bold,
+  //                   fontFamily: 'JetbrainsMono',
+  //                 ),
+  //               ),
+  //             ],
+  //           ),
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
 }

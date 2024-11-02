@@ -14,6 +14,33 @@ class BTNavigation extends StatefulWidget {
   State<BTNavigation> createState() => _BTNavigationState();
 }
 
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final double height;
+
+  CustomAppBar(
+      {this.height = kToolbarHeight *
+          2}); // Default height is twice the standard AppBar height
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      title: Text(
+        'Mushroom App',
+        style: TextStyle(
+          fontFamily: 'JetBrainsMono',
+        ),
+      ),
+      centerTitle: true,
+      flexibleSpace: Container(
+        color: Colors.blueAccent, // Customize as needed
+      ),
+    );
+  }
+
+  @override
+  Size get preferredSize => Size.fromHeight(height) * 0.7;
+}
+
 class _BTNavigationState extends State<BTNavigation> {
   int _selectedIndex = 0;
   List _WidgetOptions = [
@@ -33,16 +60,18 @@ class _BTNavigationState extends State<BTNavigation> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: ColorPalette[2],
-          elevation: 0,
-          title: Text(
-            'Mushroom App',
-            style: TextStyle(
-              fontFamily: 'JetBrainsMono',
-            ),
-          ),
-        ),
+        // appBar: AppBar(
+        //   backgroundColor: ColorPalette[4],
+        //   elevation: 0,
+        //   title: Text(
+        //     'Mushroom App',
+        //     style: TextStyle(
+        //       fontFamily: 'JetBrainsMono',
+        //     ),
+        //   ),
+
+        // ),
+        // appBar: CustomAppBar(height: 120.0),
         drawer: NavBarWidget(),
         body: Center(
           child: _WidgetOptions[_selectedIndex],

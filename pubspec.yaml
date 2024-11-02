@@ -94,6 +94,13 @@ flutter:
           - asset: assets/fonts/JetBrainsMono-Bold.ttf
           - asset: assets/fonts/JetBrainsMono-Italic.ttf
           - asset: assets/fonts/JetBrainsMono-BoldItalic.ttf
+      - family: Prompt
+        fonts:
+          - asset: assets/fonts/Prompt/Prompt-Regular.ttf
+          - asset: assets/fonts/Prompt/Prompt-Bold.ttf
+          - asset: assets/fonts/Prompt/Prompt-Italic.ttf
+          - asset: assets/fonts/Prompt/Prompt-BoldItalic.ttf
+          - asset: assets/fonts/Prompt/Prompt-Thin.ttf
       - family: Maehongson
         fonts:
           - asset: assets/fonts/PK Maehongson Round Demo.ttf
