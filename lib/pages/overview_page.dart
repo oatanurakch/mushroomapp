@@ -16,7 +16,7 @@ class _OverviewPageState extends State<OverviewPage> {
 
   Color getTextcolor(dynamic value) {
     if (value is int || value is double) {
-      return Colors.black;
+      return Color.fromARGB(255, 250, 250, 250);
     } else {
       if (value == "ON") {
         return ColorOnOff[0];
@@ -242,44 +242,46 @@ class _OverviewPageState extends State<OverviewPage> {
     return Padding(
       padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 10.0),
       child: Container(
+        width: MediaQuery.of(context).size.width * 0.45,
+        height: MediaQuery.of(context).size.height * 0.12,
+        padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+        // color: Colors.amber,
         decoration: BoxDecoration(
             // gradient: GreenGradientToneLTToRB,
-            color: Colors.grey[50],
+            // color: Colors.grey[50],
+            color: getTextcolor(value),
             borderRadius: BorderRadius.circular(10)),
-        child: Container(
-          width: MediaQuery.of(context).size.width * 0.45,
-          height: MediaQuery.of(context).size.height * 0.12,
-          padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Image.asset(pathImg,
-                      width: MediaQuery.of(context).size.height * 0.04),
-                  Container(
-                    height: MediaQuery.of(context).size.height * 0.04,
-                    width: MediaQuery.of(context).size.width * 0.3,
-                    // color: Colors.amber,
-                    child: Center(
-                      child: AutoSizeText(
-                        itemName,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: MediaQuery.of(context).size.height * 0.03,
-                          // fontSize: 24,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: 'Prompt',
-                        ),
-                        maxLines: 2,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Image.asset(pathImg,
+                    width: MediaQuery.of(context).size.height * 0.04),
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.04,
+                  width: MediaQuery.of(context).size.width * 0.3,
+                  // color: Colors.amber,
+                  child: Center(
+                    child: AutoSizeText(
+                      itemName,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: MediaQuery.of(context).size.height * 0.03,
+                        // fontSize: 24,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'Prompt',
                       ),
+                      maxLines: 2,
                     ),
                   ),
-                ],
-              ),
-              Container(
+                ),
+              ],
+            ),
+            Flexible(
+              child: Container(
                 // color: Colors.amber,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -287,8 +289,8 @@ class _OverviewPageState extends State<OverviewPage> {
                     AutoSizeText(
                       value.toString(),
                       style: TextStyle(
-                        color: getTextcolor(value),
-                        // color: Colors.black,
+                        // color: getTextcolor(value),
+                        color: Colors.black,
                         fontSize: MediaQuery.of(context).size.height * 0.04,
                         fontWeight: FontWeight.w500,
                         fontFamily: 'Prompt',
@@ -310,9 +312,9 @@ class _OverviewPageState extends State<OverviewPage> {
                   ],
                 ),
               ),
-              // Spacer(),
-            ],
-          ),
+            ),
+            // Spacer(),
+          ],
         ),
       ),
     );
