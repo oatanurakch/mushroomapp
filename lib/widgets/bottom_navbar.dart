@@ -99,7 +99,7 @@ class _BTNavigationState extends State<BTNavigation> {
                 size: 20,
               ),
               label: 'Overview',
-              backgroundColor: ColorPalette[0],
+              backgroundColor: Colors.white,
             ),
             BottomNavigationBarItem(
               icon: ImageIcon(
@@ -107,7 +107,7 @@ class _BTNavigationState extends State<BTNavigation> {
                 size: 20,
               ),
               label: 'Utility',
-              backgroundColor: ColorPalette[0],
+              backgroundColor: Colors.white,
             ),
             BottomNavigationBarItem(
               icon: ImageIcon(
@@ -115,7 +115,7 @@ class _BTNavigationState extends State<BTNavigation> {
                 size: 20,
               ),
               label: 'Spray & Biotech',
-              backgroundColor: ColorPalette[0],
+              backgroundColor: Colors.white,
             ),
           ],
         ),

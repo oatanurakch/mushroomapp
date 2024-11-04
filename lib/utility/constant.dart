@@ -5,8 +5,10 @@ final ColorPalette = [
   Color(0xFFFFFED3),
   Color(0xFFBBE9FF),
   Color(0xFFB1AFFF),
-  Color(0xFF2EDC94),
+  Color.fromARGB(255, 0, 123, 72),
 ];
+
+final ColorOnOff = [Color(0xFF13C57B), Color(0xFFFF0808)];
 
 final FontColor = [
   Color.fromARGB(255, 240, 240, 240),

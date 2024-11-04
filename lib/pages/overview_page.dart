@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mushroomapp/utility/constant.dart';
 import 'package:mushroomapp/utility/globals.dart' as globals;
 
+import 'package:auto_size_text/auto_size_text.dart';
+
 class OverviewPage extends StatefulWidget {
   const OverviewPage({super.key});
 
@@ -11,6 +13,19 @@ class OverviewPage extends StatefulWidget {
 
 class _OverviewPageState extends State<OverviewPage> {
   final redKey = GlobalKey();
+
+  Color getTextcolor(dynamic value) {
+    if (value is int || value is double) {
+      return Colors.black;
+    } else {
+      if (value == "ON") {
+        return ColorOnOff[0];
+      } else {
+        return ColorOnOff[1];
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -21,16 +36,21 @@ class _OverviewPageState extends State<OverviewPage> {
             Column(
               children: [
                 Container(
-                  height: MediaQuery.of(context).size.height * 0.2,
-                  decoration: BoxDecoration(color: ColorPalette[4]),
+                  height: MediaQuery.of(context).size.height * 0.15,
+                  decoration: BoxDecoration(
+                      gradient: GreenGradientToneLTToRB,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(30),
+                        bottomRight: Radius.circular(30),
+                      )),
                   child: Center(
                     child: Text(
                       'Mushroom App',
                       style: TextStyle(
                           color: Colors.white,
                           fontFamily: 'Prompt',
-                          fontSize: 36,
-                          fontWeight: FontWeight.w400),
+                          fontSize: 42,
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -76,13 +96,13 @@ class _OverviewPageState extends State<OverviewPage> {
                         Stack(
                           children: [
                             Container(
-                              height: MediaQuery.of(context).size.height * 0.3,
+                              height: MediaQuery.of(context).size.height * 0.2,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
                                   image: DecorationImage(
                                       image: AssetImage(
                                           'assets/images/mushroom.png'),
-                                      fit: BoxFit.cover,
+                                      fit: BoxFit.fill,
                                       colorFilter: ColorFilter.mode(
                                           Colors.black.withOpacity(0.1),
                                           BlendMode.darken))),
@@ -126,7 +146,7 @@ class _OverviewPageState extends State<OverviewPage> {
                                     'assets/icons/power.png',
                                     'Power Consumption',
                                     'Watt',
-                                    182,
+                                    1822,
                                   ),
                                   _buildCardItems(
                                     'assets/icons/energyconsumption.png',
@@ -228,59 +248,69 @@ class _OverviewPageState extends State<OverviewPage> {
             borderRadius: BorderRadius.circular(10)),
         child: Container(
           width: MediaQuery.of(context).size.width * 0.45,
-          height: MediaQuery.of(context).size.height * 0.2,
+          height: MediaQuery.of(context).size.height * 0.12,
           padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Image.asset(pathImg,
-                  width: MediaQuery.of(context).size.height * 0.04),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.01,
-              ),
-              Text(
-                itemName,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: MediaQuery.of(context).size.height * 0.015,
-                  fontWeight: FontWeight.w500,
-                  fontFamily: 'Prompt',
-                ),
-              ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    value.toString(),
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: MediaQuery.of(context).size.height * 0.06,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'Prompt',
-                    ),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.01,
-                  ),
-                  Column(
-                    children: [
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.02,
-                      ),
-                      Text(
-                        unit != null ? unit : '',
+                  Image.asset(pathImg,
+                      width: MediaQuery.of(context).size.height * 0.04),
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.04,
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    // color: Colors.amber,
+                    child: Center(
+                      child: AutoSizeText(
+                        itemName,
                         style: TextStyle(
+                          color: Colors.black,
                           fontSize: MediaQuery.of(context).size.height * 0.03,
-                          color: Color(0xFFA0A0A0),
+                          // fontSize: 24,
                           fontWeight: FontWeight.w500,
                           fontFamily: 'Prompt',
                         ),
+                        maxLines: 2,
                       ),
-                    ],
+                    ),
                   ),
                 ],
               ),
-              Spacer(),
+              Container(
+                // color: Colors.amber,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    AutoSizeText(
+                      value.toString(),
+                      style: TextStyle(
+                        color: getTextcolor(value),
+                        // color: Colors.black,
+                        fontSize: MediaQuery.of(context).size.height * 0.04,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'Prompt',
+                      ),
+                      maxLines: 1,
+                    ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.01,
+                    ),
+                    Text(
+                      unit != null ? unit : '',
+                      style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.height * 0.025,
+                        color: Color(0xFFA0A0A0),
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'Prompt',
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              // Spacer(),
             ],
           ),
         ),
