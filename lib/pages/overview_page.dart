@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:mushroomapp/utility/constant.dart';
 import 'package:mushroomapp/utility/globals.dart' as globals;
@@ -14,177 +16,169 @@ class OverviewPage extends StatefulWidget {
 class _OverviewPageState extends State<OverviewPage> {
   final redKey = GlobalKey();
 
-  Color getTextcolor(dynamic value) {
+  Gradient getTextcolor(dynamic value) {
     if (value is int || value is double) {
-      return Color.fromARGB(255, 250, 250, 250);
+      return WhiteGradientToneLTTtoRB;
     } else {
       if (value == "ON") {
-        return ColorOnOff[0];
+        return GreenGradientToneLTToRB;
       } else {
-        return ColorOnOff[1];
+        return RedGradientToneLTToRB;
       }
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.grey[200],
-        body: ListView(
-          children: [
-            Column(
-              children: [
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.15,
-                  decoration: BoxDecoration(
-                      gradient: GreenGradientToneLTToRB,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(30),
-                        bottomRight: Radius.circular(30),
-                      )),
-                  child: Center(
-                    child: Text(
-                      'Mushroom App',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Prompt',
-                          fontSize: 42,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(
-                    8.0,
-                  ),
-                  child: Container(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        // SizedBox(
-                        //   height: MediaQuery.of(context).size.height * 0.01,
-                        // ),
-                        Center(
-                          child: Padding(
-                            padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
-                            child: Container(
-                              width: MediaQuery.of(context).size.width,
-                              height: MediaQuery.of(context).size.height * 0.07,
-                              decoration: BoxDecoration(
-                                  color: Colors.grey[50],
-                                  borderRadius:
-                                      BorderRadiusDirectional.circular(10)),
-                              child: Center(
-                                child: Text(
-                                  'House #1',
-                                  style: TextStyle(
-                                    fontFamily: 'Maehongson',
-                                    fontSize:
-                                        MediaQuery.of(context).size.width *
-                                            0.07,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      // color: Colors.grey[200],
+      color: Colors.amber,
+      child: Column(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height * 0.15,
+            decoration: BoxDecoration(
+                gradient: GreenGradientToneLTToRB,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(30),
+                  bottomRight: Radius.circular(30),
+                )),
+            child: Center(
+              child: Text(
+                'Mushroom App',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'Maehongson',
+                    fontSize: 54,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(
+              8.0,
+            ),
+            child: Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // SizedBox(
+                  //   height: MediaQuery.of(context).size.height * 0.01,
+                  // ),
+                  Center(
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height * 0.07,
+                        decoration: BoxDecoration(
+                            color: Colors.grey[50],
+                            borderRadius: BorderRadiusDirectional.circular(10)),
+                        child: Center(
+                          child: AutoSizeText(
+                            'House 1',
+                            style: TextStyle(
+                              fontFamily: 'Maehongson',
+                              fontSize: MediaQuery.of(context).size.width * 0.1,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.01,
-                        ),
-                        Stack(
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.01,
+                  ),
+                  Stack(
+                    children: [
+                      Container(
+                        height: MediaQuery.of(context).size.height * 0.2,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            image: DecorationImage(
+                                image: AssetImage('assets/images/mushroom.png'),
+                                fit: BoxFit.fill,
+                                colorFilter: ColorFilter.mode(
+                                    Colors.black.withOpacity(0.1),
+                                    BlendMode.darken))),
+                      ),
+                      _buildTagLabel(
+                        'assets/icons/temp.png',
+                        "อุณหภูมิ °C",
+                        "22.8 ",
+                        [10, 10, null, null],
+                      ),
+                      _buildTagLabel(
+                        'assets/icons/humid.png',
+                        "ความชื้น %RH",
+                        "90",
+                        [null, null, 10, 10],
+                      ),
+                      _buildTagLabel(
+                        'assets/icons/fan.png',
+                        "Fan RPM",
+                        "${((globals.PWMVal.toInt() * 1800) / 100).round()}",
+                        [10, null, null, 10],
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.02,
+                  ),
+                  Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Column(
                           children: [
-                            Container(
-                              height: MediaQuery.of(context).size.height * 0.2,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                          'assets/images/mushroom.png'),
-                                      fit: BoxFit.fill,
-                                      colorFilter: ColorFilter.mode(
-                                          Colors.black.withOpacity(0.1),
-                                          BlendMode.darken))),
+                            _buildCardItems(
+                              'assets/icons/airflow.png',
+                              'Air Flow',
+                              'CFM',
+                              42,
                             ),
-                            _buildTagLabel(
-                              'assets/icons/temp.png',
-                              "อุณหภูมิ °C",
-                              "22.8 ",
-                              [10, 10, null, null],
+                            _buildCardItems(
+                              'assets/icons/power.png',
+                              'Power Consumption',
+                              'Watt',
+                              1822,
                             ),
-                            _buildTagLabel(
-                              'assets/icons/humid.png',
-                              "ความชื้น %RH",
-                              "90",
-                              [null, null, 10, 10],
-                            ),
-                            _buildTagLabel(
-                              'assets/icons/fan.png',
-                              "Fan RPM",
-                              "${((globals.PWMVal.toInt() * 1800) / 100).round()}",
-                              [10, null, null, 10],
+                            _buildCardItems(
+                              'assets/icons/energyconsumption.png',
+                              'Energy',
+                              'kWh',
+                              0.8,
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.02,
-                        ),
-                        Center(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Column(
-                                children: [
-                                  _buildCardItems(
-                                    'assets/icons/airflow.png',
-                                    'Air Flow',
-                                    'CFM',
-                                    42,
-                                  ),
-                                  _buildCardItems(
-                                    'assets/icons/power.png',
-                                    'Power Consumption',
-                                    'Watt',
-                                    1822,
-                                  ),
-                                  _buildCardItems(
-                                    'assets/icons/energyconsumption.png',
-                                    'Energy',
-                                    'kWh',
-                                    0.8,
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  _buildCardItems(
-                                    'assets/icons/light.png',
-                                    'ไฟส่องสว่าง',
-                                    null,
-                                    'OFF',
-                                  ),
-                                  _buildCardItems(
-                                    'assets/icons/led.png',
-                                    'LED สีน้ำเงิน',
-                                    null,
-                                    'ON',
-                                  ),
-                                  _buildCardItems(
-                                      'assets/icons/uv.png', 'UV', null, 'ON')
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
+                        Column(
+                          children: [
+                            _buildCardItems(
+                              'assets/icons/light.png',
+                              'ไฟส่องสว่าง',
+                              null,
+                              'OFF',
+                            ),
+                            _buildCardItems(
+                              'assets/icons/led.png',
+                              'LED สีน้ำเงิน',
+                              null,
+                              'ON',
+                            ),
+                            _buildCardItems(
+                                'assets/icons/uv.png', 'UV', null, 'ON')
+                          ],
+                        )
                       ],
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -249,7 +243,7 @@ class _OverviewPageState extends State<OverviewPage> {
         decoration: BoxDecoration(
             // gradient: GreenGradientToneLTToRB,
             // color: Colors.grey[50],
-            color: getTextcolor(value),
+            gradient: getTextcolor(value),
             borderRadius: BorderRadius.circular(10)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -268,7 +262,7 @@ class _OverviewPageState extends State<OverviewPage> {
                     child: AutoSizeText(
                       itemName,
                       style: TextStyle(
-                        color: Colors.black,
+                        color: value is int ? Colors.black : Colors.white,
                         fontSize: MediaQuery.of(context).size.height * 0.03,
                         // fontSize: 24,
                         fontWeight: FontWeight.w500,
@@ -290,7 +284,9 @@ class _OverviewPageState extends State<OverviewPage> {
                       value.toString(),
                       style: TextStyle(
                         // color: getTextcolor(value),
-                        color: Colors.black,
+                        color: value is int || value is double
+                            ? Colors.black
+                            : Colors.white,
                         fontSize: MediaQuery.of(context).size.height * 0.04,
                         fontWeight: FontWeight.w500,
                         fontFamily: 'Prompt',

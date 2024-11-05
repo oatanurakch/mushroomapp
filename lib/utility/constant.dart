@@ -11,17 +11,25 @@ final ColorPalette = [
 final ColorOnOff = [Color(0xFF13C57B), Color(0xFFFF0808)];
 
 final FontColor = [
-  Color.fromARGB(255, 240, 240, 240),
+  Color(0xFFF0F0F0),
 ];
+
+const WhiteGradientToneLTTtoRB = LinearGradient(colors: [
+  Color.fromARGB(255, 250, 250, 250),
+  Color.fromARGB(255, 250, 250, 250)
+]);
 
 const GreenGradientToneLTToRB = LinearGradient(
   colors: [
-    Color(0xFF00D684),
-    Color(0xFF26B97C),
+    Color(0xFF18CE88),
+    Color(0xFF09B26C),
   ],
-  begin: Alignment.bottomRight,
-  end: Alignment.topLeft,
+  begin: Alignment.bottomCenter,
+  end: Alignment.topCenter,
 );
+
+const RedGradientToneLTToRB =
+    LinearGradient(colors: [Color(0xFFE10909), Color(0xFFB70000)]);
 
 final GreenGradientToneDark = LinearGradient(
   colors: [
