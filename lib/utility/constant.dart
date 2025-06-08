@@ -14,9 +14,11 @@ final FontColor = [
   Color(0xFFF0F0F0),
 ];
 
+final greyLabel = Color.fromARGB(255, 240, 240, 240);
+
 const WhiteGradientToneLTTtoRB = LinearGradient(colors: [
-  Color.fromARGB(255, 250, 250, 250),
-  Color.fromARGB(255, 250, 250, 250)
+  Color.fromARGB(255, 240, 240, 240),
+  Color.fromARGB(255, 240, 240, 240)
 ]);
 
 const GreenGradientToneLTToRB = LinearGradient(

@@ -32,29 +32,27 @@ class _OverviewPageState extends State<OverviewPage> {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height,
-      // color: Colors.grey[200],
-      color: Colors.amber,
       child: Column(
         children: [
-          Container(
-            height: MediaQuery.of(context).size.height * 0.15,
-            decoration: BoxDecoration(
-                gradient: GreenGradientToneLTToRB,
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(30),
-                  bottomRight: Radius.circular(30),
-                )),
-            child: Center(
-              child: Text(
-                'Mushroom App',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: 'Maehongson',
-                    fontSize: 54,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
+          // Container(
+          //   height: MediaQuery.of(context).size.height * 0.15,
+          //   decoration: BoxDecoration(
+          //       gradient: GreenGradientToneLTToRB,
+          //       borderRadius: BorderRadius.only(
+          //         bottomLeft: Radius.circular(30),
+          //         bottomRight: Radius.circular(30),
+          //       )),
+          //   child: Center(
+          //     child: Text(
+          //       'Mushroom App',
+          //       style: TextStyle(
+          //           color: Colors.white,
+          //           fontFamily: 'Maehongson',
+          //           fontSize: 54,
+          //           fontWeight: FontWeight.bold),
+          //     ),
+          //   ),
+          // ),
           Padding(
             padding: EdgeInsets.all(
               8.0,
@@ -68,22 +66,28 @@ class _OverviewPageState extends State<OverviewPage> {
                   // ),
                   Center(
                     child: Padding(
-                      padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
+                      padding: EdgeInsets.fromLTRB(0.0, 1.0, 0.0, 1.0),
                       child: Container(
                         width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height * 0.07,
+                        height: MediaQuery.of(context).size.height * 0.05,
                         decoration: BoxDecoration(
-                            color: Colors.grey[50],
+                            color: greyLabel,
+                            // color: Colors.amber,
                             borderRadius: BorderRadiusDirectional.circular(10)),
                         child: Center(
-                          child: AutoSizeText(
-                            'House 1',
-                            style: TextStyle(
-                              fontFamily: 'Maehongson',
-                              fontSize: MediaQuery.of(context).size.width * 0.1,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          // child: AutoSizeText(
+                          //   'House 1',
+                          //   style: TextStyle(
+                          //     fontFamily: 'Maehongson',
+                          //     // fontSize: MediaQuery.devicePixelRatioOf(context) * 100,
+                          //     fontWeight: FontWeight.bold,
+                          //   ),
+                          // ),
+                          child: Text("House 1",style: TextStyle(
+                            fontFamily: 'Maehongson',
+                            fontSize: MediaQuery.devicePixelRatioOf(context) * 10,
+                            fontWeight: FontWeight.bold
+                          ),),
                         ),
                       ),
                     ),

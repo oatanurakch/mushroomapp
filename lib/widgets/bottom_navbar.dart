@@ -84,14 +84,10 @@ class _BTNavigationState extends State<BTNavigation> {
       //   ),
       // ),
       // appBar: AppBar(
-      //   backgroundColor: ColorPalette[4],
-      //   elevation: 0,
-      //   title: Text(
-      //     'Mushroom App',
-      //     style: TextStyle(
-      //       fontFamily: 'JetBrainsMono',
-      //     ),
-      //   ),
+      //   title: Text("MushTech"),
+      //   backgroundColor: ,
+      //   // elevation: 0,
+      // ),
       // appBar: CustomAppBar(height: 120.0),
       // drawer: NavBarWidget(),
       // body: Center(
@@ -100,32 +96,34 @@ class _BTNavigationState extends State<BTNavigation> {
       //   //   color: Colors.amber,
       //   // )
       // ),
-      body: ListView(
-        children: [
-          Container(
-            height: MediaQuery.of(context).size.height * 0.15,
-            decoration: BoxDecoration(
-                gradient: GreenGradientToneLTToRB,
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(30),
-                  bottomRight: Radius.circular(30),
-                )),
-            child: Center(
-              child: Text(
-                'Mushroom App',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: 'Maehongson',
-                    fontSize: 54,
-                    fontWeight: FontWeight.bold),
+      body: SafeArea(
+        child: ListView(
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height * 0.1,
+              decoration: BoxDecoration(
+                  gradient: GreenGradientToneLTToRB,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(30),
+                    bottomRight: Radius.circular(30),
+                  )),
+              child: Center(
+                child: Text(
+                  'MushTech',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Maehongson',
+                      fontSize: MediaQuery.of(context).devicePixelRatio * 15,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
             ),
-          ),
-          Container(
-            height: 200,
-            color: Colors.amber,
-          )
-        ],
+            Flexible(
+              child: _WidgetOptions[_selectedIndex]
+              // child: UtilityPage(),
+            )
+          ],
+        ),
       ),
 
       bottomNavigationBar: BottomNavigationBar(
